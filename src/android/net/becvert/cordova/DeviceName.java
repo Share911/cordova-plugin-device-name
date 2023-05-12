@@ -4,7 +4,6 @@ import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 import org.json.JSONArray;
 
-import android.bluetooth.BluetoothAdapter;
 import android.os.Build;
 import android.provider.Settings;
 import android.util.Log;
@@ -40,12 +39,9 @@ public class DeviceName extends CordovaPlugin {
                 name = Settings.Secure.getString(cordova.getActivity().getContentResolver(), "bluetooth_name");
                 Log.d(TAG, "bluetooth_name " + name);
             }
-        } else {
-            BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-            if (mBluetoothAdapter != null) {
-                name = mBluetoothAdapter.getName();
-                Log.d(TAG, "bluetooth adapter " + name);
-            }
+        }
+        if (name == null) {
+            name = "Name not supported";
         }
         return name;
     }

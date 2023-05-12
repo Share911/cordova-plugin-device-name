@@ -1,3 +1,6 @@
+## [1.3.6] - 2023-05-12
+- [Android] drop support for Android older than 4.4 KitKat (API 19); bluetooth and maxSdkVersion no longer needed
+
 ## [1.3.5] - 2019-03-23
 - 'requireCordovaModule' isn't supported anymore on cordova 9
 
